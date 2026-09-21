@@ -1,34 +1,67 @@
-# CivitechWeb
+# civitech-web
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+Landing y web pública de Civitec Domótica (`civitech.es`). Angular 16 SSR + PrimeNG + Bootstrap.
 
-## Development server
+## Quick start (5 min)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```bash
+git clone git@github.com:Civitec-Group/civitech-web.git
+cd civitech-web
+cp .env.example .env    # opcional; sin él arranca en modo estático sin chatbot
+npm install
+npm start
+```
 
-## Configuration
+Abre `http://localhost:4200`.
 
-This project requires environment variables for the chatbot (OpenAI and EmailJS).
-1. Copy `.env.example` to `.env` and fill in the values.
-2. Copy `src/environments/environment.ts.example` to `src/environments/environment.ts` and `src/environments/environment.prod.ts`.
-3. The build process runs `node set-env.js` automatically to inject these values into the Angular environment files.
+`npm start` corre `prestart` (`node set-env.js`) que **genera** `src/environments/environment.ts` desde `.env` automáticamente. Cero pasos manuales.
 
-## Code scaffolding
+### Requisitos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js 20+ y npm
+- Angular CLI se instala como devDep (no requiere `-g`)
+
+### Configuración
+
+`.env` (gitignoreado). Ver `.env.example`. Todas las variables son **opcionales**:
+
+- `CHATBOT_WEBHOOK_URL` — n8n proxy hacia OpenAI (sin él, chatbot no funciona pero web sí)
+- `N8N_LEAD_WEBHOOK_URL` — form contacto envía a n8n
+- `EMAILJS_*` — notificación fallback
+
+Sin `.env` la web arranca; solo desactiva chatbot + envío de leads.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+npm run build       # dist/civitech.web/browser
+npm run build:ssr   # con server-side rendering
+```
 
-## Running unit tests
+## Test
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+npm test
+```
 
-## Running end-to-end tests
+## Deploy
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+CI automatizado (`.github/workflows/deploy.yaml`) al merge en `main`. Deploy target: hosting Cloudflare Pages / Netlify. Ver workflow para detalles.
 
-## Further help
+## Estructura
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `src/app/features/` — features por dominio (home, servicios, casos, legal, contacto)
+- `src/environments/environment.ts` — **generado**, no editar a mano
+- `src/environments/environment.ts.example` — plantilla
+- `set-env.js` — pre-build: `.env` → `environment.ts`
+- `docs/`, `casos/`, `gbp-domotica/` — assets de contenido
+- `SEO-AUDIT.md` — auditoría SEO histórica
+
+## Contribuir
+
+Leer [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Contacto
+
+- Owner: Xim (@Xim1994)
+- Dev: Fabricio (@FabricioLimache)

@@ -46,3 +46,10 @@ Thumbs.db
 .env.*
 !.env.example
 /src/environments/environment.ts
+
+# Logs
+ng_serve.log
+*.log
+
+# GBP originales (assets pesados sin optimizar)
+gbp-domotica/originales/
