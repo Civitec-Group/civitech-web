@@ -55,3 +55,7 @@ jobs:
           local-dir: ./dist/civitech.web/browser/
           server-dir: /
           timeout: 60000
+          # 2026-10-13: state-name NUEVO -> el Action no encuentra estado previo y RE-SUBE TODO el
+          # build (sin borrar nada). Arregla el deploy incompleto que dejaba 235.*.js en 404
+          # (ChunkLoadError -> home en blanco). NO es clean-slate: no borra la raiz ni otros dominios.
+          state-name: .ftp-deploy-sync-fullfix-20261013.json
