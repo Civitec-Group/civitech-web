@@ -58,9 +58,10 @@ export class SchemaService {
             },
             'sameAs': [
                 'https://www.facebook.com/share/1A3PRQzJHb/',
-                'https://www.instagram.com/civitech.es',
+                'https://www.instagram.com/civitec.domotica',
                 'https://www.tiktok.com/@civitech.es',
-                'https://www.linkedin.com/company/civitech-es'
+                'https://www.linkedin.com/company/civitech-es',
+                'https://www.youtube.com/@civitec-domotica'
             ],
             'aggregateRating': {
                 '@type': 'AggregateRating',
@@ -144,6 +145,48 @@ export class SchemaService {
                     'addressLocality': proyecto.ubicacion
                 }
             }
+        };
+    }
+
+    /**
+     * Schema de un video de YouTube (VideoObject)
+     *
+     * Sin esto Google no sabe que la pagina tiene video y no lo puede mostrar
+     * en resultados. Solo se inserta para videos PUBLICOS: declarar uno privado
+     * es una senal rota.
+     */
+    getVideoSchema(video: {
+        id: string,
+        titulo: string,
+        descripcion: string,
+        duracionISO: string,
+        subidoISO: string,
+        paginaUrl: string
+    }): SchemaOrgService {
+        return {
+            '@context': 'https://schema.org',
+            '@type': 'VideoObject',
+            'name': video.titulo,
+            'description': video.descripcion,
+            'thumbnailUrl': [
+                `https://i.ytimg.com/vi/${video.id}/maxresdefault.jpg`
+            ],
+            'uploadDate': video.subidoISO,
+            'duration': video.duracionISO,
+            'embedUrl': `https://www.youtube.com/embed/${video.id}`,
+            'contentUrl': `https://www.youtube.com/watch?v=${video.id}`,
+            'url': video.paginaUrl,
+            'publisher': {
+                '@type': 'Organization',
+                'name': 'Civitec Domótica',
+                'logo': {
+                    '@type': 'ImageObject',
+                    'url': 'https://civitech.es/assets/images/civitech-logo.png'
+                }
+            },
+            'inLanguage': 'es-ES',
+            'isFamilyFriendly': true,
+            'regionsAllowed': 'ES'
         };
     }
 

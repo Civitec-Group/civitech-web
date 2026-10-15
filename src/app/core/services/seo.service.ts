@@ -257,9 +257,10 @@ export class SeoService {
             ],
             sameAs: [
                 'https://www.facebook.com/share/1A3PRQzJHb/',
-                'https://www.instagram.com/civitech.es',
+                'https://www.instagram.com/civitec.domotica',
                 'https://www.tiktok.com/@civitech.es',
-                'https://www.linkedin.com/company/civitech-es'
+                'https://www.linkedin.com/company/civitech-es',
+                'https://www.youtube.com/@civitec-domotica'
             ]
         };
 
