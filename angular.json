@@ -29,6 +29,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/sitemap.xml",
+              "src/sitemap-video.xml",
               "src/robots.txt"
             ],
             "styles": [
@@ -188,6 +189,7 @@
               "src/favicon.ico",
               "src/assets",
               "src/sitemap.xml",
+              "src/sitemap-video.xml",
               "src/robots.txt"
             ],
             "styles": [

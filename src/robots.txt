@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://civitech.es/sitemap.xml
+Sitemap: https://civitech.es/sitemap-video.xml

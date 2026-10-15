@@ -662,3 +662,40 @@
         transform: rotate(360deg);
     }
 }
+/* Vídeo YouTube + transcripción (SEO/GEO) */
+.video-yt {
+    margin: 3rem auto;
+}
+.video-yt__frame {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto 1.75rem;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(10, 22, 40, 0.18);
+    background: #0a1628;
+}
+.video-yt__frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.video-yt__transcript {
+    max-width: 760px;
+    margin: 0 auto;
+}
+.video-yt__transcript h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+    padding-left: 0.75rem;
+    border-left: 3px solid #0068F8;
+}
+.video-yt__transcript p {
+    margin: 0 0 0.75rem;
+    line-height: 1.65;
+}

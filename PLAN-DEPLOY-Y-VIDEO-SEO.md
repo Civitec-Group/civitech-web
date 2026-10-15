@@ -118,6 +118,22 @@ hacia Google. El tercero entra cuando se publique solo el 22-oct.
     curl -s -o /dev/null -w '%{content_type}\n' https://civitech.es/sitemap-video.xml
     # text/html   <- si sale esto, no existe
 
+### Estado 15-oct (desplegado)
+
+| | estado | evidencia |
+|---|---|---|
+| 3.1 embed + `getVideoSchema()` en `/domotica/:slug` | ✅ | prerender local: `VideoObject`=1 y `youtube.com/embed`=2 en `seguridad-inteligente` y `confort` |
+| 3.2 ídem en `/empresas/apartamentos` | ✅ | prerender local: `VideoObject`=1, embed=2 |
+| 3.3 transcripción visible bajo el vídeo | ✅ | transcripción de la cerradura **verificada contra el audio** (canal "WhatsApp" era falso, se omitió); voz, limpia |
+| 3.4 sitemap de vídeo real | ✅ | `src/sitemap-video.xml` dado de alta como asset + en `robots.txt`; se sirve como fichero, no SPA |
+| 3.5 enlazar vídeos desde `/proyectos/` | ⛔ diferido | **no hay mapa verificado** proyecto↔vídeo; enlazarlo a ciegas sería inventar la relación. Pendiente de que Xim diga qué caso de éxito usa cada vídeo, o se deja fuera |
+| 3.6/3.7/3.8 sameAs + footer + Instagram | ✅ (§7) | YouTube ×3, Instagram `civitec.domotica` ×3, viejo `civitech.es`=0 en vivo |
+
+Control negativo aplicado: una ruta sin vídeo (`optimizacion-solar`) da `VideoObject`=0, así que el
+chequeo puede dar negativo. Datos reales de los vídeos en `src/app/core/data/videos.data.ts`.
+⏳ El tercer vídeo (TV de los niños, `YTncYZaT5_k`) entra en `/domotica/confort` cuando se publique
+solo el **22-oct 17:00 UTC**: añadir su clave a `VIDEO_POR_USECASE['confort']` (hoy solo soporta uno).
+
 ---
 
 ## 4. Lo que NO hay que tocar

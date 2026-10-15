@@ -1,23 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { UseCase } from '../../core/models/use-case.model';
 import { UseCasesService } from '../../core/services/use-cases.service';
 import { SeoService } from 'src/app/core/services/seo.service';
+import { SchemaService } from 'src/app/core/services/schema.service';
+import { VIDEOS, VIDEO_POR_USECASE, VideoDato } from 'src/app/core/data/videos.data';
 
 @Component({
   selector: 'app-use-case-detalle',
   templateUrl: './use-case-detalle.component.html',
   styleUrls: ['./use-case-detalle.component.scss']
 })
-export class UseCaseDetalleComponent implements OnInit {
+export class UseCaseDetalleComponent implements OnInit, OnDestroy {
   useCase?: UseCase;
   faqExpandido: { [key: number]: boolean } = {};
+  video?: VideoDato;
+  videoEmbedUrl?: SafeResourceUrl;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private useCasesService: UseCasesService,
-    private seoService: SeoService
+    private seoService: SeoService,
+    private schemaService: SchemaService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit(): void {
@@ -29,8 +36,34 @@ export class UseCaseDetalleComponent implements OnInit {
       } else {
         this.updateMetaTags();
         this.addSchemaMarkup();
+        this.addVideoIfAny(slug);
       }
     }
+  }
+
+  // Solo videos PUBLICOS: embebido + VideoObject. Datos reales en videos.data.ts
+  private addVideoIfAny(slug: string): void {
+    const clave = VIDEO_POR_USECASE[slug];
+    if (!clave) return;
+    this.video = VIDEOS[clave];
+    this.videoEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+      `https://www.youtube.com/embed/${this.video.id}`
+    );
+    this.seoService.addStructuredData(
+      this.schemaService.getVideoSchema({
+        id: this.video.id,
+        titulo: this.video.titulo,
+        descripcion: this.video.descripcion,
+        duracionISO: this.video.duracionISO,
+        subidoISO: this.video.subidoISO,
+        paginaUrl: `https://civitech.es${this.router.url}`
+      }),
+      'schema-video-detail'
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.seoService.removeStructuredData('schema-video-detail');
   }
 
   // Update SEO using the centralized service

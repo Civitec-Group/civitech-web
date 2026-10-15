@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <url>
+    <loc>https://civitech.es/domotica/seguridad-inteligente</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/PGCBKFYYqSw/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Alquila tu piso sin entregar llaves: cerradura inteligente | Civitec Domótica Zaragoza</video:title>
+      <video:description>Cómo alquilar un piso sin entregar llaves con una cerradura inteligente: generar un código de acceso, enviárselo al huésped, que caduque tras la estancia y recibir un aviso con cada acceso.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/PGCBKFYYqSw</video:player_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2026-10-08T21:00:46+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://civitech.es/domotica/confort</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/ynjSllNMKZo/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Tu casa puede hacer mucho más que encender las luces | Civitec Domótica Zaragoza</video:title>
+      <video:description>Control por voz de una vivienda con Home Assistant: encender luces, consultar el estado de la casa, encender la televisión y el aire acondicionado y fijar la temperatura hablando con el asistente.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/ynjSllNMKZo</video:player_loc>
+      <video:duration>55</video:duration>
+      <video:publication_date>2026-10-15T14:01:50+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://civitech.es/empresas/apartamentos</loc>
+    <video:video>
+      <video:thumbnail_loc>https://i.ytimg.com/vi/PGCBKFYYqSw/maxresdefault.jpg</video:thumbnail_loc>
+      <video:title>Alquila tu piso sin entregar llaves: cerradura inteligente | Civitec Domótica Zaragoza</video:title>
+      <video:description>Para apartamentos turísticos: alquila sin entregar llaves con una cerradura inteligente, genera códigos de acceso por huésped que caducan tras la estancia y recibe avisos de cada acceso.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/PGCBKFYYqSw</video:player_loc>
+      <video:duration>47</video:duration>
+      <video:publication_date>2026-10-08T21:00:46+00:00</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:requires_subscription>no</video:requires_subscription>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+
+</urlset>

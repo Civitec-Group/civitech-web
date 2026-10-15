@@ -73,13 +73,15 @@ reproductor no habría cargado en la web y lo habríamos descubierto al final. Y
 >
 > Si tienes un piso en alquiler y quieres olvidarte de entregar las llaves, escríbenos.
 
-**Corregido del automático:** "al Westpad por el mode" → "al huésped por WhatsApp" ·
+**Corregido del automático:** "al Westpad" → "al huésped" ·
 "ese código de tiempo de funcionar" → "ese código deja de funcionar" · "ébitas" → "evitas" ·
 "escribiros" → "escríbenos" · puntuación y conectores.
 
-🔍 **Verificar contra el audio antes de publicar:** la frase del envío del código. El
-reconocimiento la destrozó y "al huésped por WhatsApp" es la lectura más razonable, **pero es una
-reconstrucción, no lo que se oyó con claridad**. Si en el vídeo dice otra cosa, corregirla.
+✅ **Verificado contra el audio el 15-oct** (faster-whisper `base` + `small`, dos pasadas). El canal
+de envío del código **no es inteligible**: ambos modelos oyen *"por el mode / por el modo"* —
+**NO "WhatsApp"** (esa fue una reconstrucción equivocada de la primera pasada). Como no se puede
+acreditar la palabra, en lo publicado se omite el canal: *"generar un código de acceso y enviárselo
+al huésped"*. El resto de la frase es fiel. Lo publicado vive en `src/app/core/data/videos.data.ts`.
 
 ---
 

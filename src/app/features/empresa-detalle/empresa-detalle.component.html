@@ -87,6 +87,27 @@
         </div>
     </section>
 
+    <!-- ===== VÍDEO + TRANSCRIPCIÓN (solo si la ruta tiene vídeo) ===== -->
+    <section class="section-white video-yt-section" *ngIf="video">
+        <div class="container">
+            <div class="section-label" data-aos="fade-up">
+                <span class="label-chip solution"><i class="fas fa-play"></i> En vídeo</span>
+                <h2>Míralo funcionando</h2>
+            </div>
+            <div class="video-yt" data-aos="fade-up" data-aos-delay="100">
+                <div class="video-yt__frame">
+                    <iframe [src]="videoEmbedUrl" [title]="video.titulo" loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="video-yt__transcript">
+                    <h3>Transcripción del vídeo</h3>
+                    <p *ngFor="let parrafo of video.transcripcion">{{ parrafo }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ===== CÓMO FUNCIONA ===== -->
     <section class="section-white">
         <div class="container">

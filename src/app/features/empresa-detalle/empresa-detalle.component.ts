@@ -1,7 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { EmpresaSegmentosService, EmpresaSegmento } from '../../core/services/empresa-segmentos.service';
 import { SeoService } from '../../core/services/seo.service';
+import { SchemaService } from '../../core/services/schema.service';
+import { VIDEOS, VIDEO_POR_EMPRESA, VideoDato } from '../../core/data/videos.data';
 
 @Component({
     selector: 'app-empresa-detalle',
@@ -11,6 +14,8 @@ import { SeoService } from '../../core/services/seo.service';
 export class EmpresaDetalleComponent implements OnInit, OnDestroy {
 
     segmento: EmpresaSegmento | undefined;
+    video?: VideoDato;
+    videoEmbedUrl?: SafeResourceUrl;
 
     private heroGradients: { [key: string]: string } = {
         'azul': 'linear-gradient(135deg, #0a1628 0%, #0d2241 60%, #0a1628 100%)',
@@ -31,7 +36,9 @@ export class EmpresaDetalleComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private router: Router,
         private segmentosService: EmpresaSegmentosService,
-        private seo: SeoService
+        private seo: SeoService,
+        private schemaService: SchemaService,
+        private sanitizer: DomSanitizer
     ) { }
 
     ngOnInit(): void {
@@ -96,11 +103,36 @@ export class EmpresaDetalleComponent implements OnInit, OnDestroy {
                     { '@type': 'ListItem', position: 3, name: s.nombre, item: `https://civitech.es/empresas/${slug}` }
                 ]
             }, 'schema-breadcrumb');
+
+            // Video (solo publicos). Se resetea en cada cambio de slug.
+            const claveVideo = VIDEO_POR_EMPRESA[slug];
+            if (claveVideo) {
+                this.video = VIDEOS[claveVideo];
+                this.videoEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+                    `https://www.youtube.com/embed/${this.video.id}`
+                );
+                this.seo.addStructuredData(
+                    this.schemaService.getVideoSchema({
+                        id: this.video.id,
+                        titulo: this.video.titulo,
+                        descripcion: this.video.descripcion,
+                        duracionISO: this.video.duracionISO,
+                        subidoISO: this.video.subidoISO,
+                        paginaUrl: `https://civitech.es/empresas/${slug}`
+                    }),
+                    'schema-video'
+                );
+            } else {
+                this.video = undefined;
+                this.videoEmbedUrl = undefined;
+                this.seo.removeStructuredData('schema-video');
+            }
         });
     }
 
     ngOnDestroy(): void {
         this.seo.removeStructuredData('schema-service');
         this.seo.removeStructuredData('schema-breadcrumb');
+        this.seo.removeStructuredData('schema-video');
     }
 }

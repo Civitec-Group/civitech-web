@@ -58,6 +58,20 @@
         </div>
     </div>
 
+    <!-- Video YouTube + transcripción (SEO/GEO) -->
+    <div class="container video-yt" data-aos="fade-up" *ngIf="video">
+        <h2 class="section-title">Míralo en vídeo</h2>
+        <div class="video-yt__frame">
+            <iframe [src]="videoEmbedUrl" [title]="video.titulo" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="video-yt__transcript">
+            <h3>Transcripción del vídeo</h3>
+            <p *ngFor="let parrafo of video.transcripcion">{{ parrafo }}</p>
+        </div>
+    </div>
+
     <!-- Video Demo Section -->
     <div class="container section-video" data-aos="fade-up" *ngIf="useCase.video">
         <h2 class="section-title">Mira cómo funciona</h2>
