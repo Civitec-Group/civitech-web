@@ -13,7 +13,12 @@ export class DomoticaInformacionComponent {
     private router: Router,
     private seoService: SeoService
   ) {
-    // Force Recompile
+    this.seoService.updateSeo({
+      title: 'Qué es la Domótica | Hogar Inteligente en Zaragoza | Civitec Domótica',
+      description: 'Descubre qué es la domótica y cómo convertir tu casa en un hogar inteligente en Zaragoza: luces, persianas, climatización, seguridad y ahorro de energía desde el móvil. Sin cuotas.',
+      keywords: 'qué es la domótica, hogar inteligente zaragoza, casa inteligente, domótica para el hogar, automatización vivienda zaragoza',
+      url: 'https://civitech.es/domotica-informacion'
+    });
   }
   urlBoton: string = '/acerca-de-nosotros'
   opiniones = [
