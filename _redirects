@@ -1,0 +1,6 @@
+# Cloudflare Pages redirects
+# 2026-10-15: civitecdomotica.es es dominio de marca. De momento (Plan A, SEO-seguro) redirige
+# 301 al canonico civitech.es, que es el que tiene la autoridad SEO. El cambio a B (civitecdomotica
+# como principal) se hara con el plan de migracion documentado (PLAN-MIGRACION-A-CIVITECDOMOTICA.md).
+https://www.civitecdomotica.es/*  https://civitech.es/:splat  301
+https://civitecdomotica.es/*      https://civitech.es/:splat  301

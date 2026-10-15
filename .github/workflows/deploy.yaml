@@ -43,7 +43,7 @@ jobs:
       # El sitio se sirve desde Pages (ni CT124 ni Hostinger). Cada push a main publica aqui solo.
       # Deploy directo por wrangler; el dominio civitech.es esta enganchado al proyecto (custom domain).
       - name: Deploy to Cloudflare Pages
-        run: npx wrangler@3 pages deploy dist/civitech.web/browser --project-name=civitec-domotica --branch=main
+        run: cp _redirects dist/civitech.web/browser/_redirects && npx wrangler@3 pages deploy dist/civitech.web/browser --project-name=civitec-domotica --branch=main
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
