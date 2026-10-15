@@ -14,8 +14,8 @@ import { VIDEOS, VIDEO_POR_EMPRESA, VideoDato } from '../../core/data/videos.dat
 export class EmpresaDetalleComponent implements OnInit, OnDestroy {
 
     segmento: EmpresaSegmento | undefined;
-    video?: VideoDato;
-    videoEmbedUrl?: SafeResourceUrl;
+    videos: { dato: VideoDato, embedUrl: SafeResourceUrl }[] = [];
+    private videoSchemaIds: string[] = [];
 
     private heroGradients: { [key: string]: string } = {
         'azul': 'linear-gradient(135deg, #0a1628 0%, #0d2241 60%, #0a1628 100%)',
@@ -104,35 +104,36 @@ export class EmpresaDetalleComponent implements OnInit, OnDestroy {
                 ]
             }, 'schema-breadcrumb');
 
-            // Video (solo publicos). Se resetea en cada cambio de slug.
-            const claveVideo = VIDEO_POR_EMPRESA[slug];
-            if (claveVideo) {
-                this.video = VIDEOS[claveVideo];
-                this.videoEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-                    `https://www.youtube.com/embed/${this.video.id}`
-                );
+            // Vídeo(s) (solo públicos). Se resetea en cada cambio de slug.
+            this.videoSchemaIds.forEach(id => this.seo.removeStructuredData(id));
+            const claves = VIDEO_POR_EMPRESA[slug] || [];
+            this.videos = claves
+                .map(c => VIDEOS[c])
+                .filter(Boolean)
+                .map(dato => ({
+                    dato,
+                    embedUrl: this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${dato.id}`)
+                }));
+            this.videoSchemaIds = this.videos.map((_, i) => `schema-video-${i}`);
+            this.videos.forEach((v, i) => {
                 this.seo.addStructuredData(
                     this.schemaService.getVideoSchema({
-                        id: this.video.id,
-                        titulo: this.video.titulo,
-                        descripcion: this.video.descripcion,
-                        duracionISO: this.video.duracionISO,
-                        subidoISO: this.video.subidoISO,
+                        id: v.dato.id,
+                        titulo: v.dato.titulo,
+                        descripcion: v.dato.descripcion,
+                        duracionISO: v.dato.duracionISO,
+                        subidoISO: v.dato.subidoISO,
                         paginaUrl: `https://civitech.es/empresas/${slug}`
                     }),
-                    'schema-video'
+                    `schema-video-${i}`
                 );
-            } else {
-                this.video = undefined;
-                this.videoEmbedUrl = undefined;
-                this.seo.removeStructuredData('schema-video');
-            }
+            });
         });
     }
 
     ngOnDestroy(): void {
         this.seo.removeStructuredData('schema-service');
         this.seo.removeStructuredData('schema-breadcrumb');
-        this.seo.removeStructuredData('schema-video');
+        this.videoSchemaIds.forEach(id => this.seo.removeStructuredData(id));
     }
 }

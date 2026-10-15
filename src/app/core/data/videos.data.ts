@@ -64,16 +64,32 @@ export const VIDEOS: { [clave: string]: VideoDato } = {
             '— Pon el aire a 22 grados.',
             '— Me voy de casa.'
         ]
+    },
+    // PRIVADO hasta el 22-oct-2026 17:00 UTC (oEmbed da 403). NO esta en los mapas
+    // de abajo todavia: cuando sea publico, anadir 'tvninos' a VIDEO_POR_USECASE['confort'].
+    tvninos: {
+        id: 'YTncYZaT5_k',
+        titulo: 'Apagar la TV de los niños a la hora de dormir, sola | Civitec Domótica Zaragoza',
+        descripcion: 'Cómo monitorizar el tiempo de televisión de los niños y apagar la tele automáticamente a la hora que elijas, con control de qué canales ven.',
+        duracionISO: 'PT15S',
+        duracionSeg: 15,
+        subidoISO: '2026-10-08T20:42:00Z',
+        transcripcion: [
+            '¿Cansado de que tus hijos estén viendo la tele hasta las tantas?',
+            'Monitoriza el tiempo de televisión y apágala a la hora que tú quieras. Además, puedes monitorizar qué canales están viendo y apagarla a las dos horas.',
+            'Escríbenos si quieres más información.'
+        ]
     }
 };
 
-/** ruta /domotica/:slug -> clave de VIDEOS (solo publicos) */
-export const VIDEO_POR_USECASE: { [slug: string]: string } = {
-    'seguridad-inteligente': 'cerradura',
-    'confort': 'voz'
+/** ruta /domotica/:slug -> claves de VIDEOS (LISTA, solo publicos). Varios por pagina. */
+export const VIDEO_POR_USECASE: { [slug: string]: string[] } = {
+    'seguridad-inteligente': ['cerradura'],
+    // 22-oct-2026 (cuando 'tvninos' sea publico): ['voz', 'tvninos']
+    'confort': ['voz']
 };
 
-/** ruta /empresas/:slug -> clave de VIDEOS (solo publicos) */
-export const VIDEO_POR_EMPRESA: { [slug: string]: string } = {
-    'apartamentos': 'cerradura'
+/** ruta /empresas/:slug -> claves de VIDEOS (LISTA, solo publicos) */
+export const VIDEO_POR_EMPRESA: { [slug: string]: string[] } = {
+    'apartamentos': ['cerradura']
 };

@@ -88,15 +88,15 @@
     </section>
 
     <!-- ===== VÍDEO + TRANSCRIPCIÓN (solo si la ruta tiene vídeo) ===== -->
-    <section class="section-white video-yt-section" *ngIf="video">
+    <section class="section-white video-yt-section" *ngIf="videos.length">
         <div class="container">
             <div class="section-label" data-aos="fade-up">
                 <span class="label-chip solution"><i class="fas fa-play"></i> En vídeo</span>
                 <h2>Míralo funcionando</h2>
             </div>
             <div class="video-yt" data-aos="fade-up" data-aos-delay="100">
-                <div class="video-yt__frame">
-                    <iframe [src]="videoEmbedUrl" [title]="video.titulo" loading="lazy"
+                <div class="video-yt__frame" *ngFor="let v of videos">
+                    <iframe [src]="v.embedUrl" [title]="v.dato.titulo" loading="lazy"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>

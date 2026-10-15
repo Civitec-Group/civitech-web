@@ -58,11 +58,11 @@
         </div>
     </div>
 
-    <!-- Video YouTube + transcripción (SEO/GEO) -->
-    <div class="container video-yt" data-aos="fade-up" *ngIf="video">
+    <!-- Vídeo(s) YouTube (SEO/GEO) -->
+    <div class="container video-yt" data-aos="fade-up" *ngIf="videos.length">
         <h2 class="section-title">Míralo en vídeo</h2>
-        <div class="video-yt__frame">
-            <iframe [src]="videoEmbedUrl" [title]="video.titulo" loading="lazy"
+        <div class="video-yt__frame" *ngFor="let v of videos">
+            <iframe [src]="v.embedUrl" [title]="v.dato.titulo" loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>

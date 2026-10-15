@@ -15,8 +15,7 @@ import { VIDEOS, VIDEO_POR_USECASE, VideoDato } from 'src/app/core/data/videos.d
 export class UseCaseDetalleComponent implements OnInit, OnDestroy {
   useCase?: UseCase;
   faqExpandido: { [key: number]: boolean } = {};
-  video?: VideoDato;
-  videoEmbedUrl?: SafeResourceUrl;
+  videos: { dato: VideoDato, embedUrl: SafeResourceUrl }[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -41,29 +40,33 @@ export class UseCaseDetalleComponent implements OnInit, OnDestroy {
     }
   }
 
-  // Solo videos PUBLICOS: embebido + VideoObject. Datos reales en videos.data.ts
+  // Solo videos PUBLICOS: embebido + VideoObject (uno o varios). Datos en videos.data.ts
   private addVideoIfAny(slug: string): void {
-    const clave = VIDEO_POR_USECASE[slug];
-    if (!clave) return;
-    this.video = VIDEOS[clave];
-    this.videoEmbedUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-      `https://www.youtube.com/embed/${this.video.id}`
-    );
-    this.seoService.addStructuredData(
-      this.schemaService.getVideoSchema({
-        id: this.video.id,
-        titulo: this.video.titulo,
-        descripcion: this.video.descripcion,
-        duracionISO: this.video.duracionISO,
-        subidoISO: this.video.subidoISO,
-        paginaUrl: `https://civitech.es${this.router.url}`
-      }),
-      'schema-video-detail'
-    );
+    const claves = VIDEO_POR_USECASE[slug] || [];
+    this.videos = claves
+      .map(c => VIDEOS[c])
+      .filter(Boolean)
+      .map(dato => ({
+        dato,
+        embedUrl: this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${dato.id}`)
+      }));
+    this.videos.forEach((v, i) => {
+      this.seoService.addStructuredData(
+        this.schemaService.getVideoSchema({
+          id: v.dato.id,
+          titulo: v.dato.titulo,
+          descripcion: v.dato.descripcion,
+          duracionISO: v.dato.duracionISO,
+          subidoISO: v.dato.subidoISO,
+          paginaUrl: `https://civitech.es${this.router.url}`
+        }),
+        `schema-video-detail-${i}`
+      );
+    });
   }
 
   ngOnDestroy(): void {
-    this.seoService.removeStructuredData('schema-video-detail');
+    this.videos.forEach((_, i) => this.seoService.removeStructuredData(`schema-video-detail-${i}`));
   }
 
   // Update SEO using the centralized service
