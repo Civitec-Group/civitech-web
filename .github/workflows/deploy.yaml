@@ -39,23 +39,11 @@ jobs:
       - name: List dist directory
         run: ls -l ./dist/civitech.web/browser | head
 
-      # Deploy robusto por FTPS (2026-08-04): sustituye el lftp a pelo (fallaba con
-      # "max-retries exceeded" por la negociacion SSL/pasiva desde la red de GitHub).
-      # SamKirkland/FTP-Deploy-Action usa basic-ftp: mejor SSL/reintentos y solo sube lo que cambia.
-      # IP origen de Hostinger directa (Cloudflare no enruta FTP). Misma password (secret).
-      - name: Deploy to Hostinger via FTPS
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: 46.202.158.245
-          port: 21
-          protocol: ftps
-          security: loose
-          username: u824079794.hostinger
-          password: ${{ secrets.HOSTINGER_FTP_PASSWORD }}
-          local-dir: ./dist/civitech.web/browser/
-          server-dir: /
-          timeout: 60000
-          # 2026-10-13: state-name NUEVO -> el Action no encuentra estado previo y RE-SUBE TODO el
-          # build (sin borrar nada). Arregla el deploy incompleto que dejaba 235.*.js en 404
-          # (ChunkLoadError -> home en blanco). NO es clean-slate: no borra la raiz ni otros dominios.
-          state-name: .ftp-deploy-sync-fullfix-20261013.json
+      # 2026-10-15: civitech.es MIGRADO a Cloudflare Pages (proyecto "civitec-domotica").
+      # El sitio se sirve desde Pages (ni CT124 ni Hostinger). Cada push a main publica aqui solo.
+      # Deploy directo por wrangler; el dominio civitech.es esta enganchado al proyecto (custom domain).
+      - name: Deploy to Cloudflare Pages
+        run: npx wrangler@3 pages deploy dist/civitech.web/browser --project-name=civitec-domotica --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
