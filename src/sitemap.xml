@@ -8,85 +8,85 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://civitech.es/acerca-de-nosotros</loc>
+    <loc>https://civitech.es/acerca-de-nosotros/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica-informacion</loc>
+    <loc>https://civitech.es/domotica-informacion/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas</loc>
+    <loc>https://civitech.es/empresas/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/lavanderias</loc>
+    <loc>https://civitech.es/empresas/lavanderias/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/hosteleria</loc>
+    <loc>https://civitech.es/empresas/hosteleria/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/apartamentos</loc>
+    <loc>https://civitech.es/empresas/apartamentos/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/gimnasios</loc>
+    <loc>https://civitech.es/empresas/gimnasios/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/clinicas</loc>
+    <loc>https://civitech.es/empresas/clinicas/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/oficinas</loc>
+    <loc>https://civitech.es/empresas/oficinas/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/comercio</loc>
+    <loc>https://civitech.es/empresas/comercio/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/empresas/hoteles</loc>
+    <loc>https://civitech.es/empresas/hoteles/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/proyectos</loc>
+    <loc>https://civitech.es/proyectos/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/contactanos</loc>
+    <loc>https://civitech.es/contactanos/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/instaladores</loc>
+    <loc>https://civitech.es/instaladores/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -94,19 +94,19 @@
 
   <!-- Páginas Legales -->
   <url>
-    <loc>https://civitech.es/aviso-legal</loc>
+    <loc>https://civitech.es/aviso-legal/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://civitech.es/politica-privacidad</loc>
+    <loc>https://civitech.es/politica-privacidad/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://civitech.es/politica-cookies</loc>
+    <loc>https://civitech.es/politica-cookies/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -114,37 +114,37 @@
 
   <!-- Proyectos (detail pages) -->
   <url>
-    <loc>https://civitech.es/proyectos/casa-huesca-integral</loc>
+    <loc>https://civitech.es/proyectos/casa-huesca-integral/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://civitech.es/proyectos/lavanderia-autowash</loc>
+    <loc>https://civitech.es/proyectos/lavanderia-autowash/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://civitech.es/proyectos/chalet-tesla-airzone</loc>
+    <loc>https://civitech.es/proyectos/chalet-tesla-airzone/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://civitech.es/proyectos/casa-rural-control-total</loc>
+    <loc>https://civitech.es/proyectos/casa-rural-control-total/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://civitech.es/proyectos/taller-ia-carga-zaragoza</loc>
+    <loc>https://civitech.es/proyectos/taller-ia-carga-zaragoza/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://civitech.es/proyectos/vivienda-autosuficiente-ia</loc>
+    <loc>https://civitech.es/proyectos/vivienda-autosuficiente-ia/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -152,73 +152,73 @@
 
   <!-- Casos de Uso -->
   <url>
-    <loc>https://civitech.es/domotica/energia-inteligente</loc>
+    <loc>https://civitech.es/domotica/energia-inteligente/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/seguridad-inteligente</loc>
+    <loc>https://civitech.es/domotica/seguridad-inteligente/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/confort</loc>
+    <loc>https://civitech.es/domotica/confort/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/optimizacion-solar</loc>
+    <loc>https://civitech.es/domotica/optimizacion-solar/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/climatizacion-inteligente</loc>
+    <loc>https://civitech.es/domotica/climatizacion-inteligente/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/persianas-automaticas</loc>
+    <loc>https://civitech.es/domotica/persianas-automaticas/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/control-fugas</loc>
+    <loc>https://civitech.es/domotica/control-fugas/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/carga-vehiculo-electrico</loc>
+    <loc>https://civitech.es/domotica/carga-vehiculo-electrico/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/riego-inteligente</loc>
+    <loc>https://civitech.es/domotica/riego-inteligente/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/negocios-locales-inteligentes</loc>
+    <loc>https://civitech.es/domotica/negocios-locales-inteligentes/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/gestion-red-wifi</loc>
+    <loc>https://civitech.es/domotica/gestion-red-wifi/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://civitech.es/domotica/cuidado-mayores</loc>
+    <loc>https://civitech.es/domotica/cuidado-mayores/</loc>
     <lastmod>2026-08-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

@@ -184,6 +184,13 @@ export class SeoService {
     }
 
     private updateCanonicalUrl(url: string): void {
+        // Cloudflare Pages sirve cada ruta CON barra final y devuelve 308 a la version sin
+        // barra. Un canonical que apunta a un 308 no se indexa nunca: medido el 21-oct-2026,
+        // Google tenia 36 paginas enviadas y 0 indexadas por esto desde la migracion del
+        // 15-oct. Se normaliza aqui, en el unico sitio que escribe el canonical, en vez de
+        // en las ~36 rutas de getSeoConfigForRoute.
+        const canonical = url.endsWith('/') ? url : `${url}/`;
+
         let link: HTMLLinkElement | null = this.document.querySelector('link[rel="canonical"]');
 
         if (!link) {
@@ -192,7 +199,7 @@ export class SeoService {
             this.document.head.appendChild(link);
         }
 
-        link.setAttribute('href', url);
+        link.setAttribute('href', canonical);
     }
 
     setRobotsTag(content: string): void {

@@ -3,7 +3,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 
   <url>
-    <loc>https://civitech.es/domotica/seguridad-inteligente</loc>
+    <loc>https://civitech.es/domotica/seguridad-inteligente/</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/PGCBKFYYqSw/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Alquila tu piso sin entregar llaves: cerradura inteligente | Civitec Domótica Zaragoza</video:title>
@@ -18,7 +18,7 @@
   </url>
 
   <url>
-    <loc>https://civitech.es/domotica/confort</loc>
+    <loc>https://civitech.es/domotica/confort/</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/ynjSllNMKZo/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Tu casa puede hacer mucho más que encender las luces | Civitec Domótica Zaragoza</video:title>
@@ -33,7 +33,7 @@
   </url>
 
   <url>
-    <loc>https://civitech.es/empresas/apartamentos</loc>
+    <loc>https://civitech.es/empresas/apartamentos/</loc>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/PGCBKFYYqSw/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Alquila tu piso sin entregar llaves: cerradura inteligente | Civitec Domótica Zaragoza</video:title>
