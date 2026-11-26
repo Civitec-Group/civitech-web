@@ -28,6 +28,13 @@ export class FormularioContactoComponent {
 
   onFormSubmit(event: Event): void {
     const form = event.target as HTMLFormElement;
+    // Origen en el correo de Web3Forms: se rellena ANTES de que el navegador recoja los datos del
+    // envio nativo (el handler de submit corre antes). Si algo falla, el formulario sale igual.
+    try {
+      const campo = form.querySelector('input[name="origen"]') as HTMLInputElement | null;
+      if (campo) campo.value = this.lineaOrigen();
+    } catch { /* nada */ }
+
     const formData = new FormData(form);
 
     // Track en GA4
@@ -59,6 +66,22 @@ export class FormularioContactoComponent {
     }
 
     // El formulario sigue su submit normal hacia Web3Forms
+  }
+
+  /** "utm_source=instagram · utm_medium=bio · entró por /domotica/ · envió desde /contactanos/" */
+  private lineaOrigen(): string {
+    const o = this.origen.paraEnvio();
+    const partes: string[] = [];
+    (['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const).forEach(k => {
+      if (o[k]) partes.push(k + '=' + o[k]);
+    });
+    if (o.gclid) partes.push('gclid (Google Ads)');
+    if (o.fbclid) partes.push('fbclid (Meta)');
+    if (!partes.length) partes.push('sin campaña');
+    if (o.referrer) partes.push('vino de ' + o.referrer);
+    if (o.landing_page) partes.push('entró por ' + o.landing_page);
+    if (o.page) partes.push('envió desde ' + o.page);
+    return partes.join(' · ').slice(0, 900);
   }
 
   private origenSeguro(): object {
