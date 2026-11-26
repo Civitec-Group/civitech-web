@@ -162,7 +162,9 @@
               "/empresas/hoteles",
               "/aviso-legal",
               "/politica-privacidad",
-              "/politica-cookies"
+              "/politica-cookies",
+              "/gracias",
+              "/404"
             ]
           },
           "configurations": {

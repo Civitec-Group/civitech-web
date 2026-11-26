@@ -2,6 +2,7 @@ import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { AnalyticsService } from '../../../core/services/analytics.service';
 import { environment } from '../../../../environments/environment';
+import { OrigenService } from '../../../core/services/origen.service';
 
 @Component({
   selector: 'formulario-contacto-civitech',
@@ -19,6 +20,7 @@ export class FormularioContactoComponent {
 
   constructor(
     private analytics: AnalyticsService,
+    private origen: OrigenService,
     @Inject(PLATFORM_ID) platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -40,16 +42,30 @@ export class FormularioContactoComponent {
         telefono: formData.get('telefono'),
         message: formData.get('message'),
         source: 'web_form',
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        // Origen del lead (utm_*, gclid, fbclid, referrer, landing_page, first_seen, page).
+        // Contrato con el flujo n8n lead-civitech-web: no renombrar.
+        ...this.origenSeguro()
       };
 
       fetch(this.n8nLeadWebhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(leadData)
+        body: JSON.stringify(leadData),
+        // keepalive: el submit a Web3Forms navega fuera de la pagina y sin esto el navegador
+        // puede cortar la peticion a n8n a medias (el lead no llegaria a Odoo)
+        keepalive: true
       }).catch(() => {}); // Silent fail — Web3Forms es el canal principal
     }
 
     // El formulario sigue su submit normal hacia Web3Forms
+  }
+
+  private origenSeguro(): object {
+    try {
+      return this.origen.paraEnvio();
+    } catch {
+      return {};
+    }
   }
 }

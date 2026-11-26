@@ -17,7 +17,6 @@ export class AcercaDeNosotrosComponent implements OnInit {
   constructor(private seoService: SeoService, private proyectosService: ProyectosService) { }
 
   ngOnInit(): void {
-    this.seoService.addLocalBusinessSchema();
     this.proyectosDestacados = this.proyectosService.getProyectos().slice(0, 3);
   }
 

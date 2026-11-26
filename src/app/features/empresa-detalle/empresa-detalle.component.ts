@@ -67,18 +67,7 @@ export class EmpresaDetalleComponent implements OnInit, OnDestroy {
                 '@type': 'Service',
                 name: s.seoTitle,
                 description: s.seo.description,
-                provider: {
-                    '@type': 'LocalBusiness',
-                    name: 'Civitec Domótica',
-                    url: 'https://civitech.es',
-                    telephone: '+34624074920',
-                    address: {
-                        '@type': 'PostalAddress',
-                        addressLocality: 'Zaragoza',
-                        addressRegion: 'Aragón',
-                        addressCountry: 'ES'
-                    }
-                },
+                provider: { '@id': 'https://civitech.es/#negocio' },
                 areaServed: {
                     '@type': 'City',
                     name: 'Zaragoza'

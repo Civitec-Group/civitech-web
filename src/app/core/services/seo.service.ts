@@ -56,7 +56,7 @@ export class SeoService {
         const configs: { [key: string]: SeoConfig } = {
             '/': {
                 title: 'Civitec Domótica Zaragoza · Instalación sin obras',
-                description: 'Empresa líder en domótica en Zaragoza. Instalación sin obras, sistemas abiertos, control centralizado. Presupuesto gratis en 24h.',
+                description: 'Instaladores de domótica en Zaragoza. Instalación sin obras, sistemas abiertos, control centralizado. Presupuesto gratis en 24h.',
                 keywords: 'domotica zaragoza, empresa domotica zaragoza, instalador domotica zaragoza, casa inteligente zaragoza, civitech',
                 url: this.baseUrl,
                 image: `${this.baseUrl}/assets/images/home.jpg`
@@ -226,51 +226,6 @@ export class SeoService {
         }
     }
 
-    addLocalBusinessSchema(): void {
-        const localBusiness = {
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            '@id': 'https://civitech.es',
-            name: 'Civitec Domótica',
-            description: 'Civitec Domótica: Empresa líder en domótica en Zaragoza. Instalación sin obras y control centralizado.',
-            image: `${this.baseUrl}/assets/images/logo_civitec_domotica.png`,
-            url: this.baseUrl,
-            telephone: '+34624074920',
-            email: 'info@civitech.es',
-            address: {
-                '@type': 'PostalAddress',
-                streetAddress: 'Calle de Nuestra Señora de Covadonga, 39',
-                addressLocality: 'Zaragoza',
-                addressRegion: 'Aragón',
-                postalCode: '50017',
-                addressCountry: 'ES'
-            },
-            geo: {
-                '@type': 'GeoCoordinates',
-                latitude: 41.648823,
-                longitude: -0.889085
-            },
-            areaServed: {
-                '@type': 'City',
-                name: 'Zaragoza'
-            },
-            openingHoursSpecification: [
-                {
-                    '@type': 'OpeningHoursSpecification',
-                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                    opens: '00:00',
-                    closes: '23:59'
-                }
-            ],
-            sameAs: [
-                'https://www.facebook.com/share/1A3PRQzJHb/',
-                'https://www.instagram.com/civitec.domotica',
-                'https://www.tiktok.com/@civitech.es',
-                'https://www.linkedin.com/company/civitech-es',
-                'https://www.youtube.com/@civitec-domotica'
-            ]
-        };
-
-        this.addStructuredData(localBusiness);
-    }
+    // addLocalBusinessSchema() retirado el 26-nov-2026: la ficha de empresa (LocalBusiness) va UNA vez,
+    // estática en src/index.html con "@id": "https://civitech.es/#negocio". No volver a inyectarla aquí.
 }

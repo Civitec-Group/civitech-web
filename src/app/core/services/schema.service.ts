@@ -57,7 +57,7 @@ export class SchemaService {
                 'closes': '23:59'
             },
             'sameAs': [
-                'https://www.facebook.com/share/1A3PRQzJHb/',
+                'https://www.facebook.com/profile.php?id=61567649371468',
                 'https://www.instagram.com/civitec.domotica',
                 'https://www.tiktok.com/@civitech.es',
                 'https://www.linkedin.com/company/civitech-es',
@@ -82,10 +82,7 @@ export class SchemaService {
             '@type': 'Service',
             'name': useCase.titulo,
             'description': useCase.descripcionDetallada || useCase.descripcion,
-            'provider': {
-                '@type': 'LocalBusiness',
-                'name': 'Civitec Domótica'
-            },
+            'provider': { '@id': 'https://civitech.es/#negocio' },
             'serviceType': `Domótica - ${useCase.categoria}`,
             'areaServed': {
                 '@type': 'City',

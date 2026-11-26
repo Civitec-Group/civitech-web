@@ -104,17 +104,7 @@ export class UseCaseDetalleComponent implements OnInit, OnDestroy {
       "@type": "Service",
       "name": this.useCase.titulo,
       "description": this.useCase.descripcionDetallada,
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Civitec Domótica",
-        "telephone": "+34-624-074-920",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Zaragoza",
-          "addressRegion": "Aragón",
-          "addressCountry": "ES"
-        }
-      },
+      "provider": { "@id": "https://civitech.es/#negocio" },
       "areaServed": {
         "@type": "Place",
         "name": "Aragón, España"

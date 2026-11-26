@@ -87,15 +87,7 @@ export class ProyectoDetalleComponent implements OnInit {
         "@type": "Organization",
         "name": "Civitec Domótica"
       },
-      "publisher": {
-        "@type": "LocalBusiness",
-        "name": "Civitec Domótica",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Zaragoza",
-          "addressCountry": "ES"
-        }
-      },
+      "publisher": { "@id": "https://civitech.es/#negocio" },
       "datePublished": this.convertirFecha(this.proyecto.fecha),
       "about": {
         "@type": "Thing",

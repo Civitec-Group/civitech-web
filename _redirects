@@ -1,6 +1,5 @@
 # Cloudflare Pages redirects
-# 2026-10-15: civitecdomotica.es es dominio de marca. De momento (Plan A, SEO-seguro) redirige
-# 301 al canonico civitech.es, que es el que tiene la autoridad SEO. El cambio a B (civitecdomotica
-# como principal) se hara con el plan de migracion documentado (PLAN-MIGRACION-A-CIVITECDOMOTICA.md).
-https://www.civitecdomotica.es/*  https://civitech.es/:splat  301
-https://civitecdomotica.es/*      https://civitech.es/:splat  301
+# 26-nov-2026: las redirecciones de DOMINIO (www.civitech.es y civitecdomotica.es -> civitech.es) y las
+# de URL viejas (.html) viven en functions/_middleware.js. Cloudflare Pages ignora las reglas de dominio
+# de este fichero: las que hubo aqui desde el 15-oct nunca funcionaron. Este fichero se sigue copiando
+# en el deploy por si hace falta una regla de RUTA (relativa) en el futuro.
